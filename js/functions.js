@@ -8,9 +8,9 @@ function clearMessages(){
 	document.getElementById('messages').innerHTML = '';
 }
 
-let playerMove = 'papier';
 
-printMessage('Zagrałem ' + playerMove + '! Jeśli Twój ruch to nożyce, to wygrywasz!')
+
+
 
 let randomNumber = Math.floor(Math.random() * 3 + 1);
 
@@ -41,6 +41,18 @@ if(playerInput == '1'){
 	playerMove = 'papier'
 } else if (playerInput == '3') {
 	playerMove = 'nożyce'
+} else {
+	playerMove = 'wrongInput'
 }
 
 printMessage('Twój ruch to: ' + playerMove);
+
+if( computerMove == 'kamień' && playerMove == 'papier' || computerMove == 'papier' && playerMove == 'nożyce' || computerMove == 'nożyce' && playerMove == 'kamień'){
+	printMessage('Ty wygrywasz!');
+  } else if ( computerMove == 'papier' && playerMove == 'kamień' || computerMove == 'nożyce' && playerMove == 'papier' || computerMove == 'kamień' && playerMove == 'nożyce' ) {
+	printMessage('przegrałeś :(')
+  } else if ( computerMove == playerMove) {
+	  printMessage('Remis')
+  } else if (playerMove == 'wrongInput') {
+	  alert('niepoprawy input')
+  }
