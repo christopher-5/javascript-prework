@@ -1,29 +1,24 @@
-let playRock = document.getElementById('play-rock');
+const playRock = document.getElementById('play-rock');
 playRock.addEventListener('click', function() { playGame(1) });
 
-let playPaper = document.getElementById('play-paper');
+const playPaper = document.getElementById('play-paper');
 playPaper.addEventListener('click', function() { playGame(2) });
 
-let playScissors = document.getElementById('play-scissors');
+const playScissors = document.getElementById('play-scissors');
 playScissors.addEventListener('click', function() { playGame(3) });
 
-function printMessage(msg){
+const printMessage = function(msg){
 	let div = document.createElement('div');
 	div.innerHTML = msg;
 	document.getElementById('messages').appendChild(div);
 };
 
-function clearMessages(){
+const clearMessages = function(){
 	document.getElementById('messages').innerHTML = '';
 };
 
-let randomNumber = Math.floor(Math.random() * 3 + 1);
 
-console.log('Wylosowana liczba to: ' + randomNumber);
-
-let argComputerMove = getMoveName(randomNumber);
-
-function getMoveName(argMoveId){
+const getMoveName = function(argMoveId){
 	if(argMoveId == 1){
 	return 'kamień';
 	} else if (argMoveId == 2) {
@@ -38,9 +33,13 @@ function getMoveName(argMoveId){
 function playGame(playerInput){
 	clearMessages();
 
-	printMessage('Mój ruch to: ' + argComputerMove);
+	const randomNumber = Math.floor(Math.random() * 3 + 1);
+	console.log('Wylosowana liczba to: ' + randomNumber);
+	const argComputerMove = getMoveName(randomNumber);
 
-	let argPlayerMove = getMoveName(playerInput);
+	printMessage('Mój ruch to: ' + argComputerMove);
+	
+	const argPlayerMove = getMoveName(playerInput);
 
 	console.log('Gracz wpisał: ' + argPlayerMove);
 
