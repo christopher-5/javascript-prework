@@ -1,3 +1,4 @@
+{
 const playRock = document.getElementById('play-rock');
 playRock.addEventListener('click', function() { playGame(1) });
 
@@ -52,3 +53,4 @@ function playGame(playerInput){
 	} else if ( argComputerMove == argPlayerMove) {
 		printMessage('Remis') };
 };
+}
